@@ -2,7 +2,9 @@ import React, { Component } from "react";
 import Seat from './Seat';
 import {ROWS, COLUMNS, CONFIRMED_BOOKINGS} from'../../../data';
 
-const RESERVED_SEATS = Object.keys(CONFIRMED_BOOKINGS).reduce((reservedSeats, key) => reservedSeats.concat(CONFIRMED_BOOKINGS[key].seats), []);
+const RESERVED_SEATS = Object.keys(CONFIRMED_BOOKINGS).reduce((reservedSeats, key) => reservedSeats.concat(CONFIRMED_BOOKINGS[key].selectedSeats), []);
+
+console.log('reserved seats', JSON.stringify(RESERVED_SEATS));
 
  const getSeatsRow = ({rowIndex, onChange, selectedSeats}) => {
     return COLUMNS.map(colIndex => {
